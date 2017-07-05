@@ -145,9 +145,10 @@ export default {
         },
         afterEnter(el) {
             this.$el.classList.add('animated')
-            this.$el.classList.add('fadeIn')
+            this.$el.classList.add(this.showMethod)
         },
         beforeLeave(el) {
+            el.classList.remove(this.showMethod)
             el.style.animationDuration = this.hideDuration + 'ms'
         }
     }
