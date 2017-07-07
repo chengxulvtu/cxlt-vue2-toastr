@@ -148,6 +148,7 @@ export default {
             this.$el.classList.add(this.showMethod)
         },
         beforeLeave(el) {
+            el.classList.remove(this.showMethod)
             el.style.animationDuration = this.hideDuration + 'ms'
         }
     }
