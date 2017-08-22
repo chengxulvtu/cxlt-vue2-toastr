@@ -287,7 +287,9 @@ export default {
                 showDuration: 1000,
                 hideDuration: 1000,
                 delay: 0,
-                timeOut: '1500'
+                timeOut: '1500',
+                url: 'http://ya.ru/',
+                urlBlank: true
             },
             colors: {
                 hex: '#51a351',

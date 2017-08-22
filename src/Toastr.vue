@@ -1,6 +1,6 @@
 <template>
     <transition :enter-active-class="enterActiveClass" :leave-active-class="leaveActiveClass" @before-enter="beforeEnter" @after-enter="afterEnter" @before-leave="beforeLeave">
-        <div class="toast" :class="['toast-'+type]" :style="{backgroundColor:toastBackgroundColor}" v-if="show">
+        <div class="toast" :class="['toast-'+type]" :style="{backgroundColor:toastBackgroundColor}" v-if="show" @click="onClick">
             <button class="toast-close-button" role="button" @click="hideToastr" v-if="closeButton">×</button>
             <div class="toast-progress" v-if="progressBar" :style="'width: ' + progress.percent + '%'"></div>
             <div class="toast-title">{{title}}</div>
@@ -80,6 +80,13 @@ export default {
         },
         color: {
             type: String
+        },
+        url: {
+            type: String
+        },
+        urlBlank: {
+            type: Boolean,
+            default: false
         }
     },
     beforeMount() {
@@ -149,6 +156,10 @@ export default {
         },
         beforeLeave(el) {
             el.style.animationDuration = this.hideDuration + 'ms'
+        },
+        onClick() {
+            this.urlBlank ? window.open(this.url, '_blank') : window.location = this.url
+            this.hideToastr()
         }
     }
 }
