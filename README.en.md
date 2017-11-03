@@ -77,6 +77,7 @@ You need to pass an option object which can have below values, used for controll
 | message       | String          | Content for notification                 |
 | closeButton   | Boolean         | Need close button or not, default as <b>false</b>    |
 | progressBar   | Boolean         | default as false    |
+| closeOnHover  | Boolean         | still close when hover,default as false    |
 | [type](#type)          | String          | Type for notification，default as <b>success</b>       |
 | [position](#position)      | String          | Position for notification，default as <b>top right</b>  |
 | [showMethod](#showmethod)    | String          | Animation class name for shown，default as <b>fadeIn</b>     |
@@ -86,6 +87,9 @@ You need to pass an option object which can have below values, used for controll
 | delay         | Number          | Delay of animation，unit as <b>ms</b>，default as <b>0</b>, means no delay |
 | timeOut       | Number          | Duration of notification displaying，Unit as <b>ms</b>，default as <b>1500</b> |
 | color         | String          | background color of notification                       |
+| onClicked     | Function        | callback when click  |
+| onMouseOver   | Function        | callback when mouse over  |
+| onMouseOut    | Function        | callback when mouse out  |
 
 ### type
 

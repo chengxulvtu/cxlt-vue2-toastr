@@ -27,6 +27,29 @@
                             <input type="checkbox" v-model="toastr.progressBar"> Progress Bar
                         </label>
                     </p>
+                    <p class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" v-model="toastr.closeOnHover"> Close On Hover
+                        </label>
+                    </p>
+                </div>
+                <div class="field">
+                    <label class="label">Events</label>
+                    <p class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" v-model="bindOnClicked"> OnClicked
+                        </label>
+                    </p>
+                    <p class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" v-model="bindOnMouseOver"> OnMouseOver
+                        </label>
+                    </p>
+                    <p class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" v-model="bindOnMouseOut"> OnMouseOut
+                        </label>
+                    </p>
                 </div>
             </div>
             <div class="column">
@@ -287,12 +310,19 @@ export default {
                 showDuration: 1000,
                 hideDuration: 1000,
                 delay: 0,
-                timeOut: '1500'
+                timeOut: '1500',
+                closeOnHover: false,
+                onClicked: null,
+                onMouseOver: null,
+                onMouseOut: null
             },
             colors: {
                 hex: '#51a351',
                 a: 1
-            }
+            },
+            bindOnClicked: false,
+            bindOnMouseOver: false,
+            bindOnMouseOut: false
         }
     },
     methods: {
@@ -350,6 +380,33 @@ export default {
                         a: 1
                     }
                     break;
+            }
+        },
+        bindOnClicked(val) {
+            if (val){
+                this.toastr.onClicked = function (){
+                    console.log("toastr clicked!")
+                }
+            } else {
+                this.toastr.onClicked = null
+            }
+        },
+        bindOnMouseOver(val) {
+            if (val){
+                this.toastr.onMouseOver = function (){
+                    console.log("mouse over!")
+                }
+            } else {
+                this.toastr.onMouseOver = null
+            }
+        },
+        bindOnMouseOut(val) {
+            if (val){
+                this.toastr.onMouseOut = function (){
+                    console.log("mouse out!")
+                }
+            } else {
+                this.toastr.onMouseOut = null
             }
         }
     },

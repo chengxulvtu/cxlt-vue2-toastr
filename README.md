@@ -80,6 +80,7 @@ cxlt-vue2-toastr支持以下方法
 | message       | String          | 通知的内容                   |
 | closeButton   | Boolean         | 是否显示关闭按钮，默认false    |
 | progressBar   | Boolean         | 默认false    |
+| closeOnHover  | Boolean         | 鼠标经过时仍然关闭，默认false    |
 | type          | String          | 通知的类型，默认success       |
 | position      | String          | 通知显示的位置，默认top right  |
 | showMethod    | String          | 显示动画的名称，默认fadeIn     |
@@ -89,6 +90,9 @@ cxlt-vue2-toastr支持以下方法
 | delay         | Number          | 显示动画开始之前的延迟，单位ms，默认0，没有延迟 |
 | timeOut       | Number          | toast显示的时间，单位ms，默认1500 |
 | color         | String          | toast的背景色                       |
+| onClicked     | Function        | 鼠标点击后的回调  |
+| onMouseOver   | Function        | 鼠标移入时的回调  |
+| onMouseOut    | Function        | 鼠标移出时的回调  |
 
 ### type
 

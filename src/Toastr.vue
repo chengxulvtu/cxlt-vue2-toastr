@@ -1,6 +1,6 @@
 <template>
     <transition :enter-active-class="enterActiveClass" :leave-active-class="leaveActiveClass" @before-enter="beforeEnter" @after-enter="afterEnter" @before-leave="beforeLeave">
-        <div class="toast" :class="['toast-'+type]" :style="{backgroundColor:toastBackgroundColor}" v-if="show">
+        <div class="toast" :class="['toast-'+type]" :style="{backgroundColor:toastBackgroundColor}" v-if="show" @click="clicked" v-on:mouseover="mouseOver" v-on:mouseout="mouseOut">
             <button class="toast-close-button" role="button" @click="hideToastr" v-if="closeButton">×</button>
             <div class="toast-progress" v-if="progressBar" :style="'width: ' + progress.percent + '%'"></div>
             <div class="toast-title">{{title}}</div>
@@ -80,6 +80,19 @@ export default {
         },
         color: {
             type: String
+        },
+        onClicked: {
+            type: Function
+        },
+        onMouseOver: {
+            type: Function
+        },
+        onMouseOut: {
+            type: Function
+        },
+        closeOnHover: {
+            type: Boolean,
+            default: false
         }
     },
     beforeMount() {
@@ -149,6 +162,29 @@ export default {
         },
         beforeLeave(el) {
             el.style.animationDuration = this.hideDuration + 'ms'
+        },
+        clicked() {
+            if (this.onClicked instanceof Function && this.show) {
+                this.onClicked()
+            }
+            this.hideToastr()
+        },
+        mouseOver() {
+            if (this.onMouseOver instanceof Function) {
+                this.onMouseOver()
+            }
+            if (!this.closeOnHover) {
+                clearTimeout(this.sto)
+                clearInterval(this.progress.intervalId)
+            }
+        },
+        mouseOut() {
+            if (this.onMouseOut instanceof Function) {
+                this.onMouseOut()
+            }
+            if (!this.closeOnHover && this.show) {
+                this.showToastr()
+            }
         }
     }
 }
