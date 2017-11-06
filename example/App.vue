@@ -283,6 +283,14 @@
                 <button class="button is-warning" @click="hideToastr">Hide Toastr</button>
             </p>
         </div>
+        <div class="field is-grouped">
+            <p class="control">
+                <button class="button is-primary" @click="showToastr1">Show Toastr1</button>
+            </p>
+            <p class="control">
+                <button class="button is-primary" @click="showToastr2">Show Toastr2</button>
+            </p>
+        </div>
     </div>
 </template>
 
@@ -345,7 +353,19 @@ export default {
         },
         hideToastr() {
             this.$toast.removeAll()
+        },
+        showToastr1() {
+            this.$toast.success({
+                title: 'I am another toastr, I have no message.'
+            })
+        },
+        showToastr2() {
+            this.$toast.success({
+                title: 'I am another toastr, I have message.',
+                message: 'I am the message'
+            })
         }
+
     },
     watch: {
         type(newType) {
