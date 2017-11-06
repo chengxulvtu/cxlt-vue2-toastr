@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1 class="title">cxlt-vue2-toastr演示</h1>
+        <h1 class="title">vue2-toastr演示</h1>
         <hr>
         <div class="columns">
             <div class="column">
@@ -25,6 +25,29 @@
                     <p class="control">
                         <label class="checkbox">
                             <input type="checkbox" v-model="toastr.progressBar"> Progress Bar
+                        </label>
+                    </p>
+                    <p class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" v-model="toastr.closeOnHover"> Close On Hover
+                        </label>
+                    </p>
+                </div>
+                <div class="field">
+                    <label class="label">Events</label>
+                    <p class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" v-model="bindOnClicked"> OnClicked
+                        </label>
+                    </p>
+                    <p class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" v-model="bindOnMouseOver"> OnMouseOver
+                        </label>
+                    </p>
+                    <p class="control">
+                        <label class="checkbox">
+                            <input type="checkbox" v-model="bindOnMouseOut"> OnMouseOut
                         </label>
                     </p>
                 </div>
@@ -260,10 +283,13 @@
                 <button class="button is-warning" @click="hideToastr">Hide Toastr</button>
             </p>
         </div>
-        <hr>
-        <div class="qrcode">
-            <p>欢迎关注公众号</p>
-            <img src="../qrcode_for_chengxulvtu.jpg" />
+        <div class="field is-grouped">
+            <p class="control">
+                <button class="button is-primary" @click="showToastr1">Show Toastr1</button>
+            </p>
+            <p class="control">
+                <button class="button is-primary" @click="showToastr2">Show Toastr2</button>
+            </p>
         </div>
     </div>
 </template>
@@ -287,12 +313,19 @@ export default {
                 showDuration: 1000,
                 hideDuration: 1000,
                 delay: 0,
-                timeOut: '1500'
+                timeOut: '1500',
+                closeOnHover: false,
+                onClicked: null,
+                onMouseOver: null,
+                onMouseOut: null
             },
             colors: {
                 hex: '#51a351',
                 a: 1
-            }
+            },
+            bindOnClicked: false,
+            bindOnMouseOver: false,
+            bindOnMouseOut: false
         }
     },
     methods: {
@@ -320,7 +353,19 @@ export default {
         },
         hideToastr() {
             this.$toast.removeAll()
+        },
+        showToastr1() {
+            this.$toast.success({
+                title: 'I am another toastr, I have no message.'
+            })
+        },
+        showToastr2() {
+            this.$toast.success({
+                title: 'I am another toastr, I have message.',
+                message: 'I am the message'
+            })
         }
+
     },
     watch: {
         type(newType) {
@@ -350,6 +395,33 @@ export default {
                         a: 1
                     }
                     break;
+            }
+        },
+        bindOnClicked(val) {
+            if (val){
+                this.toastr.onClicked = function (){
+                    console.log("toastr clicked!")
+                }
+            } else {
+                this.toastr.onClicked = null
+            }
+        },
+        bindOnMouseOver(val) {
+            if (val){
+                this.toastr.onMouseOver = function (){
+                    console.log("mouse over!")
+                }
+            } else {
+                this.toastr.onMouseOver = null
+            }
+        },
+        bindOnMouseOut(val) {
+            if (val){
+                this.toastr.onMouseOut = function (){
+                    console.log("mouse out!")
+                }
+            } else {
+                this.toastr.onMouseOut = null
             }
         }
     },

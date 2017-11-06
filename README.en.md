@@ -1,5 +1,5 @@
-# cxlt-vue2-toastr
-**cxlt-vue2-toastr** is a non-blocking notifications for Vue2 ，Based on [toastr](https://github.com/CodeSeven/toastr) stylings and design together with [animate.css](https://github.com/daneden/animate.css) animation effects
+# vue2-toastr
+**vue2-toastr** is a non-blocking notifications for Vue2 ，Based on [toastr](https://github.com/CodeSeven/toastr) stylings and design together with [animate.css](https://github.com/daneden/animate.css) animation effects
 
 **Demo:** [https://chengxulvtu.github.io/toastr/index.html](https://chengxulvtu.github.io/toastr/index.html)
 
@@ -7,17 +7,17 @@
 
 Using npm
 ```bash
-npm install cxlt-vue2-toastr --save
+npm install vue2-toastr --save
 ```
 Or using yarn
 ```bash
-yarn add cxlt-vue2-toastr
+yarn add vue2-toastr
 ```
 
 ## Usage
 ### Import Component
 ```javascript
-import CxltToastr from 'cxlt-vue2-toastr'
+import CxltToastr from 'vue2-toastr'
 
 Vue.use(CxltToastr)
 ```
@@ -43,11 +43,11 @@ Please note: if you pass color option in your notification instance, it will ove
 
 ### Import styling files
 ```javascript
-import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css'
+import 'vue2-toastr/dist/css/vue2-toastr.css'
 ```
 Or use it in .vue with style tag
 ```
-<style src="cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css"></style>
+<style src="vue2-toastr/dist/css/vue2-toastr.css"></style>
 ```
 ### Call Notification Instance
 ```javascript
@@ -57,7 +57,7 @@ this.$toast.success({
 })
 ```
 
-cxlt-vue2-toastr support below functions
+vue2-toastr support below functions
 
 | functions        |
 | ------------- |
@@ -77,6 +77,7 @@ You need to pass an option object which can have below values, used for controll
 | message       | String          | Content for notification                 |
 | closeButton   | Boolean         | Need close button or not, default as <b>false</b>    |
 | progressBar   | Boolean         | default as false    |
+| closeOnHover  | Boolean         | still close when hover,default as false    |
 | [type](#type)          | String          | Type for notification，default as <b>success</b>       |
 | [position](#position)      | String          | Position for notification，default as <b>top right</b>  |
 | [showMethod](#showmethod)    | String          | Animation class name for shown，default as <b>fadeIn</b>     |
@@ -86,6 +87,9 @@ You need to pass an option object which can have below values, used for controll
 | delay         | Number          | Delay of animation，unit as <b>ms</b>，default as <b>0</b>, means no delay |
 | timeOut       | Number          | Duration of notification displaying，Unit as <b>ms</b>，default as <b>1500</b> |
 | color         | String          | background color of notification                       |
+| onClicked     | Function        | callback when click  |
+| onMouseOver   | Function        | callback when mouse over  |
+| onMouseOut    | Function        | callback when mouse out  |
 
 ### type
 
@@ -198,18 +202,11 @@ You need to pass an option object which can have below values, used for controll
 ## Demo
 [https://chengxulvtu.github.io/toastr/index.html](https://chengxulvtu.github.io/toastr/index.html)
 
-![Demo截图](http://cxlt.oss-cn-shanghai.aliyuncs.com/cxlt-vue2-toastr%20demo.png)
-
 ## Run this project
 fork the repository，then follow below commands
 ```bash
 git clone xxx
-cd cxlt-vue2-toastr
+cd vue2-toastr
 yarn
 npm run dev
 ```
-
-## Welcome to follow my wechat
-Please note, you will need wechat app to follow. for oversea users, you may just follow my github. 
-
-<img src="http://cxlt.oss-cn-shanghai.aliyuncs.com/qrcode_for_chengxulvtu.jpg" title="程序旅途公众号二维码" width="150"/>
