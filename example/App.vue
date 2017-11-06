@@ -283,11 +283,6 @@
                 <button class="button is-warning" @click="hideToastr">Hide Toastr</button>
             </p>
         </div>
-        <hr>
-        <div class="qrcode">
-            <p>欢迎关注公众号</p>
-            <img src="../qrcode_for_chengxulvtu.jpg" />
-        </div>
     </div>
 </template>
 

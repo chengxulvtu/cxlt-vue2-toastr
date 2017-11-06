@@ -1,28 +1,28 @@
-# cxlt-vue2-toastr ([English Doc](/README.en.md))
+# vue2-toastr ([English Doc](/README.en.md))
 
 
-**cxlt-vue2-toastr**是弹出提示的Vue2组件，基于[toastr](https://github.com/CodeSeven/toastr)的样式和[animate.css](https://github.com/daneden/animate.css)的动画效果。
+**vue2-toastr**是弹出提示的Vue2组件，基于[toastr](https://github.com/CodeSeven/toastr)的样式和[animate.css](https://github.com/daneden/animate.css)的动画效果。
 
-**Demo:** [https://chengxulvtu.github.io/toastr/index.html](https://chengxulvtu.github.io/toastr/index.html)
+**Demo:** [https://brahmachen.github.io/vue2-toastr/example/dist/index.html](https://brahmachen.github.io/vue2-toastr/example/dist/index.html)
 
 
 ## 安装
 
 使用npm
 ```bash
-npm install cxlt-vue2-toastr --save
+npm install vue2-toastr --save
 ```
-或者yarn
+<!-- 或者yarn
 ```bash
 yarn add cxlt-vue2-toastr
-```
+``` -->
 
 ## 用法
 ### 注册组件
 ```javascript
-import CxltToastr from 'cxlt-vue2-toastr'
+import Toastr from 'vue2-toastr'
 
-Vue.use(CxltToastr)
+Vue.use(Toastr)
 ```
 还可以传入一个全局配置对象
 ```javascript
@@ -30,7 +30,7 @@ var toastrConfigs = {
     position: 'top right',
     showDuration: 2000
 }
-Vue.use(CxltToastr, toastrConfigs)
+Vue.use(Toastr, toastrConfigs)
 ```
 下文表格中列举的属性除了color都可在全局配置中使用
 
@@ -47,11 +47,11 @@ Vue.use(CxltToastr, toastrConfigs)
 
 ### 引入样式
 ```javascript
-import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css'
+import 'vue2-toastr/dist/css/vue2-toastr.css'
 ```
 或在.vue文件中使用style
 ```javascript
-<style src="cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css"></style>
+<style src="vue2-toastr/dist/css/vue2-toastr.css"></style>
 ```
 ### 使用组件
 ```javascript
@@ -61,7 +61,7 @@ this.$toast.success({
 })
 ```
 
-cxlt-vue2-toastr支持以下方法
+vue2-toastr支持以下方法
 
 | 方法名         |
 | ------------- |
@@ -203,19 +203,13 @@ cxlt-vue2-toastr支持以下方法
   * `slideOutUp`
 
 ## Demo
-[https://chengxulvtu.github.io/toastr/index.html](https://chengxulvtu.github.io/toastr/index.html)
-
-![Demo截图](http://cxlt.oss-cn-shanghai.aliyuncs.com/cxlt-vue2-toastr%20demo.png)
+[https://brahmachen.github.io/vue2-toastr/example/dist/index.html](https://brahmachen.github.io/vue2-toastr/example/dist/index.html)
 
 ## 运行程序
 先fork项目，然后执行下面的命令
 ```bash
 git clone xxx
-cd cxlt-vue2-toastr
+cd vue2-toastr
 yarn
 npm run dev
 ```
-
-## 欢迎我的关注公众号
-
-<img src="http://cxlt.oss-cn-shanghai.aliyuncs.com/qrcode_for_chengxulvtu.jpg" title="程序旅途公众号二维码" width="150"/>
