@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1 class="title">cxlt-vue2-toastr演示</h1>
+        <h1 class="title">vue2-toastr演示</h1>
         <hr>
         <div class="columns">
             <div class="column">
