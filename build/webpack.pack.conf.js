@@ -13,7 +13,7 @@ baseWebpackConfig.entry = {}
 
 var webpackConfig = merge(baseWebpackConfig, {
     entry: {
-        'cxlt-vue2-toastr': './src/index.js'
+        'vue2-toastr': './src/index.js'
     },
     module: {
         rules: utils.styleLoaders({
@@ -71,13 +71,11 @@ var webpackConfig = merge(baseWebpackConfig, {
         //     chunks: ['vendor']
         // }),
         // copy custom static assets
-        new CopyWebpackPlugin([
-            {
-                from: path.resolve(__dirname, '../static'),
-                to: config.pack.assetsSubDirectory,
-                ignore: ['.*']
-            }
-        ])
+        new CopyWebpackPlugin([{
+            from: path.resolve(__dirname, '../static'),
+            to: config.pack.assetsSubDirectory,
+            ignore: ['.*']
+        }])
     ],
     externals: {
         'vue': 'vue'
